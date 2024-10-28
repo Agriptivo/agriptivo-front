@@ -6,6 +6,7 @@
   </v-row>
 
   <v-row justify="center">
+    <AlertContainer ref="alertContainer" /> <!-- SPAIN CHANGE -->
     <v-col cols="6">
       <v-data-table :headers="headers" :items="filteredSupplies" class="elevation-3" :search="search"
         :items-per-page="5" height="400">
@@ -23,7 +24,7 @@
           <v-icon size="small" class="me-2" @click="openModal(-1, item)">
             mdi-pencil
           </v-icon>
-          <v-icon size="small" @click="deleteItem(item.raw)">
+          <v-icon size="small" @click="deleteItem(item.raw.id_supplies)">
             mdi-delete
           </v-icon>
           <!-- <v-icon size="small" @click="cultive(item.raw.id_finca)">
@@ -40,6 +41,7 @@
 </template>
 
 <script setup>
+import AlertContainer from "../../components/Alerts/AlertContainer.vue"
 import { ref, computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import Register from "./Register.vue";
@@ -70,8 +72,13 @@ const search = ref("");
 const dataModal = ref({});
 const typeModal = ref(1);
 
+const loadingForm = ref(false)
+const alertContainer = ref(null)
+const showAlert = ref(false)
+const errorMessage = ref(null)
+
 onMounted(async () => {
-  await store.dispatch("supply/list",route.params.id_finca);
+  await store.dispatch("supply/list", route.params.id_finca);
 });
 
 const supplies = computed(() =>
@@ -103,10 +110,47 @@ const openModal = (type, item = null) => {
 };
 
 
-const deleteItem = (item) => {
-  // Implementa la lógica para eliminar el ítem aquí
-};
 
 const components = { Register }
 
+const deleteItem = async (id_supply) => {
+  loadingForm.value = true
+
+  try {
+    const response = await store.dispatch("supply/delete", id_supply)
+    alertContainer.value.addAlert({
+      id: 1,
+      type: "success",
+      message: response,
+    });
+
+    const index = supplies.value.findIndex((data) => data.id_supplies === id_supply);
+    if (index !== -1) {
+      // Si el índice es válido
+      supplies.value.splice(index, 1); // Elimina el elemento en el índice 'index'
+    }
+
+    loadingForm.value = false
+  } catch (error) {
+    showAlert.value = true
+    errorMessage.value = error.message
+
+    if (error && typeof error === "object") {
+      const { code, message } = error
+      const typeMessage = code === 409 ? "warning" : "error"
+
+      alertContainer.value.addAlert({
+        id: 1,
+        type: typeMessage,
+        message: message,
+      })
+    } else {
+      alertContainer.value.addAlert({
+        id: 1,
+        type: "error",
+        message: error,
+      })
+    }
+  }
+};
 </script>

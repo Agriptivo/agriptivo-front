@@ -46,7 +46,7 @@ const actions = {
     }
   },
 
-  async list({ commit },id) {
+  async list({ commit }, id) {
     try {
       const response = await axiosInstance.get(`/api/supplies/${id}`);
       const { results } = response.data;
@@ -55,7 +55,7 @@ const actions = {
       throw new Error(error.message);
     }
   },
-  async listSuppliesProcess({commit},id){
+  async listSuppliesProcess({ commit }, id) {
     try {
       const response = await axiosInstance.get(`/api/supplies/process/${id}`);
       const { results } = response.data;
@@ -63,7 +63,23 @@ const actions = {
     } catch (error) {
       throw new Error(error.message);
     }
-  }
+  },
+  async delete({}, id) {
+    try {
+      const response = await axiosInstance.delete(`api/supply/${id}`);
+      const { data } = response;
+
+      if (data.status === "success" && data.message) {
+        return data.message;
+      } else {
+        const error = new Error(data.message);
+        error.data = data;
+        throw error;
+      }
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  },
 };
 const getters = {
   supplies: (state) => state.supplies,

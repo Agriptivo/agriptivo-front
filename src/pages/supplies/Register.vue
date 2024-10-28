@@ -56,11 +56,11 @@
 import AlertContainer from "../../components/Alerts/AlertContainer.vue"
 import { useStore } from "vuex"
 import { ref, watch, onMounted, defineProps, defineEmits, computed } from "vue"
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 
 
 // DATA
-const router = useRouter()
+// const router = useRouter()
 
 const store = useStore();
 
@@ -135,17 +135,20 @@ async function submitForm() {
       } else {
         response = await store.dispatch("supply/register", credentials);
       }
-      // const response = await store.dispatch("finca/register", credentials);
       await store.dispatch("supply/list", route.params.id_finca)
+
       alertContainer.value.addAlert({
         id: 1,
         type: "success",
         message: response,
       });
+
       loadingForm.value = false
-      cancel()
-      close()
-      dataReset()
+
+      setTimeout(() => {
+        cancel()
+        dataReset()
+      }, 2000); // Pausa de 2 segundos antes de cerrar y reiniciar el formulario
 
     } catch (error) {
       showAlert.value = true;

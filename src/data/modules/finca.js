@@ -1,4 +1,4 @@
-import axiosInstance from '../../api/axiosInstances';
+import axiosInstance from "../../api/axiosInstances";
 
 const state = {
   fincas: null,
@@ -25,10 +25,13 @@ const actions = {
       throw new Error(error.message);
     }
   },
-  async update({ commit },{ credentials,id}) {
+  async update({ commit }, { credentials, id }) {
     try {
       console.log(credentials);
-      const response = await axiosInstance.patch(`api/finca/${id}`, credentials);
+      const response = await axiosInstance.patch(
+        `api/finca/${id}`,
+        credentials
+      );
       const { data } = response;
 
       if (data.status === "success" && data.message) {
@@ -47,19 +50,36 @@ const actions = {
     try {
       const response = await axiosInstance.get(`/api/fincas`);
       const { results } = response.data;
-      commit('LIST', results)
+      commit("LIST", results);
     } catch (error) {
       throw new Error(error.message);
     }
   },
-}
+
+  async delete({}, id) {
+    try {
+      const response = await axiosInstance.delete(`api/finca/${id}`);
+      const { data } = response;
+
+      if (data.status === "success" && data.message) {
+        return data.message;
+      } else {
+        const error = new Error(data.message);
+        error.data = data;
+        throw error;
+      }
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  },
+};
 const getters = {
-  fincas: state => state.fincas,
+  fincas: (state) => state.fincas,
 };
 export default {
   namespaced: true,
   state,
   mutations,
   actions,
-  getters
+  getters,
 };

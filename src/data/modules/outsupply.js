@@ -46,9 +46,9 @@ const actions = {
     }
   },
 
-  async list({ commit },id) {
+  async list({ commit }, id) {
     try {
-      const response = await axiosInstance.get(`/api/outsupplies/${id}`)
+      const response = await axiosInstance.get(`/api/outsupplies/${id}`);
       const { results } = response.data;
       commit("LIST", results);
     } catch (error) {
@@ -56,7 +56,7 @@ const actions = {
     }
   },
 
-  async delete({ commit }, { id }) {
+  async delete({}, id) {
     try {
       const response = await axiosInstance.delete(`api/outsupply/${id}`);
       const { data } = response;
