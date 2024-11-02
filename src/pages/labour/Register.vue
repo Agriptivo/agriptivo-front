@@ -99,7 +99,7 @@ onMounted(() => { store.dispatch('role/listJornareros', 3) })
 
 const jornareros = computed(() => store.getters["role/jornareros"])
 
-const dataReset = () => {
+const resetData = () => {
   name_labour.value = null
   description.value = null
   id_user.value = null
@@ -133,9 +133,11 @@ async function submitForm() {
       })
 
       loadingForm.value = false
-      cancel()
-      close()
-      dataReset()
+      resetData()
+
+      setTimeout(() => {
+        cancel()
+      }, 2000); // Pausa de 2 segundos antes de cerrar y reiniciar el formulario
     } catch (error) {
       showAlert.value = true
       errorMessage.value = error.message

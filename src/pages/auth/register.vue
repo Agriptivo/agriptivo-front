@@ -151,7 +151,10 @@ export default {
           });
 
           this.loadingForm = false;
-          this.$router.push("/login");
+
+          setTimeout(() => {
+            this.$router.push("/login");
+          }, 2000); // Pausa de 2 segundos antes de cerrar y reiniciar el formulario
         } catch (error) {
 
           this.showAlert = true;

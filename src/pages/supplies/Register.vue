@@ -103,7 +103,7 @@ const typeForm = computed(() => prop.type === 1
 );
 const route = useRoute()
 
-const dataReset = () => {
+const resetData = () => {
   name_supplies.value = null
   amount_supplies.value = null
   fk_wunit_id.value = null
@@ -144,10 +144,10 @@ async function submitForm() {
       });
 
       loadingForm.value = false
+      resetData()
 
       setTimeout(() => {
         cancel()
-        dataReset()
       }, 2000); // Pausa de 2 segundos antes de cerrar y reiniciar el formulario
 
     } catch (error) {

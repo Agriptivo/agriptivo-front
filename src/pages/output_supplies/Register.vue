@@ -91,7 +91,7 @@ onMounted(() => { store.dispatch("Wunit/list") })
 const supplies = computed(() => Array.isArray(store.getters["supply/supplies"]) ? store.getters["supply/supplies"] : [])
 const DataWunits = computed(() => store.getters["Wunit/wunits"])
 
-const dataReset = () => {
+const resetData = () => {
   amount_outsupplies.value = null
   fk_wunit_id.value = null
   fk_supplies_id.value = null
@@ -121,9 +121,12 @@ async function submitForm() {
         message: response,
       })
       loadingForm.value = false
-      cancel()
-      close()
-      dataReset()
+
+      resetData()
+
+      setTimeout(() => {
+        cancel()
+      }, 2000); // Pausa de 2 segundos antes de cerrar y reiniciar el formulario
     } catch (error) {
       showAlert.value = true
       errorMessage.value = error.message

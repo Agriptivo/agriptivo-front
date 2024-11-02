@@ -33,13 +33,13 @@
             </v-toolbar>
           </template>
           <template v-slot:[`item.actions`]="{ item }">
-            <v-btn variant="text" class="">
-              <v-icon size="large" class="me-2" @click="openModal(-1, item)">
+            <v-btn @click="openModal(-1, item)" variant="text" class="">
+              <v-icon size="large" class="me-2">
                 mdi-pencil
               </v-icon>
             </v-btn>
-            <v-btn variant="text">
-              <v-icon size="large" class="me-2" @click="deleteItem(item.raw)">
+            <v-btn @click="deleteItem(item.raw.id_labour)" variant="text">
+              <v-icon size="large" class="me-2" >
                 mdi-delete
               </v-icon>
             </v-btn>

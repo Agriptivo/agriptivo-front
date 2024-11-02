@@ -71,7 +71,7 @@ const descriptionRules = ref([
 //Route
 const route = useRoute()
 
-const dataReset = () => {
+const resetData = () => {
   price_cif.value = null
   name_cif.value = null
 }
@@ -98,9 +98,11 @@ async function submitForm() {
         message: response,
       })
       loadingForm.value = false
-      cancel()
-      close()
-      dataReset()
+      resetData()
+
+      setTimeout(() => {
+        cancel()
+      }, 2000); // Pausa de 2 segundos antes de cerrar y reiniciar el formulario
     } catch (error) {
       showAlert.value = true
       errorMessage.value = error.message
