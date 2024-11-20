@@ -56,7 +56,10 @@ async function fetch(id) {
       "Punto de equilibrio": data.PE,
       "Mano de obra directa": data.mano_obra_directa,
       "Rentabilidad": data.rentabilidad,
-      "Venta de punto de equilibrio": data.ventaPE
+      "Venta de punto de equilibrio": data.ventaPE,
+      "Precio de trabajo": data.price_labour,
+      "Precio de suministros utilizados": data.price_outsupplies,
+      "Costos irregulares": data.price_cif,
     };
   } catch (error) {
     console.error('Error al cargar el reporte:', error);
