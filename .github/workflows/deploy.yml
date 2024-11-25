@@ -20,6 +20,8 @@ jobs:
         username: ${{ secrets.SERVER_USER }}
         key: ${{ secrets.SERVER_SSH_KEY }}
         script: |
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/id_rsa_front
           cd /home/ubuntu/projects/agriptivo-front
           git pull origin main
           npm install
