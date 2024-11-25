@@ -12,6 +12,6 @@ export default defineConfig({
 
 		],
 		build: {
-			assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.gif', '*.svg']
+			assetsInclude: ['**/*.jpg', '**/*.jpeg', '**/*.png', '**/*.gif']
 		}
 })
