@@ -1,6 +1,6 @@
 <template>
   <div class="back1 bg-primary">
-    <img class="bottom-background" src="back1.svg" />
+    <v-img max-width="150vw" max-height="180vh" class="bottom-background" src="back1.svg" />
     <v-container>
       <nav class="nav-main mt-2">
         <div class="d-flex justify-start w-100 pb-5">
@@ -524,10 +524,12 @@ export default {
 
 .bottom-background {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  width: 101vw;
+  height: 101vh;
   object-fit: cover;
   z-index: 0;
+  padding: none;
+  margin: none;
   /* Ajusta esto según sea necesario para cubrir completamente la pantalla */
 }
 </style>
