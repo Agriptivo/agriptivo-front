@@ -475,21 +475,6 @@ export default {
   /* Asegura que el contenedor tenga al menos la altura de la ventana */
 }
 
-.conocenos_section {
-  background-image: url("../background1.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 90vh;
-}
-
-.free_modules_section {
-  background-image: url("../background2.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
-}
 
 .glass-effect {
   background: linear-gradient(135deg,
@@ -501,14 +486,6 @@ export default {
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   height: 36vh;
-}
-
-.pay_section {
-  background-image: url("../background3.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
 }
 
 .container {
