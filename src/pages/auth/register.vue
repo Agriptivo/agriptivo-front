@@ -37,6 +37,57 @@
                 type="email"
                 required
               ></v-text-field>
+              <v-row>
+              <v-col cols="12" sm="6" md="12">
+                <v-autocomplete prepend-icon="mdi-earth" label="Departamentos*" clearable item-title="name_department" item-value="id_department"
+                  :items="departamenties || []" variant="outlined" v-model="id_department" :rules="selectRules"></v-autocomplete>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" sm="6" md="12">
+                <v-autocomplete prepend-icon="mdi-earth" label="Municipios*" clearable item-title="name_municipality"
+                  item-value="id_municipality" :items="municipalities || []" variant="outlined"
+                  v-model="fk_municipality_id" :rules="selectRules"></v-autocomplete>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" sm="6" md="12">
+                <v-autocomplete prepend-icon="mdi-earth" label="Veredas*" clearable item-title="name_vereda" item-value="id_vereda"
+                  :items="veredas || []" variant="outlined" v-model="fk_vereda_id" :rules="selectRules"></v-autocomplete>
+              </v-col>
+            </v-row>
+              <v-text-field
+                v-model="edad_user"
+                label="Edad"
+                :rules="edadRules"
+                prepend-icon="mdi-cake-variant"
+                maxlength="2"
+                counter
+                type="number"
+              ></v-text-field>
+              <v-row>
+              <v-col cols="12" sm="6" md="12">
+                <v-autocomplete prepend-icon="mdi-gender-male-female" label="Género*" clearable item-title="name" item-value="name"
+                  :items="generos" variant="outlined" v-model="sexo_user" :rules="selectRules"></v-autocomplete>
+              </v-col>
+            </v-row>
+              <v-text-field
+                v-model="nacimiento_user"
+                label="Nacimiento"
+                :rules="nacimientoRules"
+                prepend-icon="mdi-cake-variant"
+                maxlength="10"
+                counter
+                type="date"
+              ></v-text-field>
+              <v-text-field
+                v-model="estudios_user"
+                label="Estudios"
+                prepend-icon="mdi-brain"
+                maxlength="100"
+                counter
+                type="text"
+              ></v-text-field>
               <v-text-field
                 v-model="password_user"
                 label="Contraseña"
@@ -79,6 +130,9 @@
   
   <script>
 import AlertContainer from "../../components/Alerts/AlertContainer.vue";
+import {ref,onMounted,computed,watch} from "vue"
+import { useStore } from "vuex"
+
 export default {
   components: {
     AlertContainer,
@@ -88,6 +142,12 @@ export default {
       cedula_user: null,
       name_user: null,
       email_user: null,
+      fk_vereda_id: null,
+      edad_user: null,
+      generos: [{name:"Hombre"},{name:"Mujer"}],
+      sexo_user: null,
+      nacimiento_user: null,
+      estudios_user: null,
       password_user: null,
       celular1: null,
       celular2: null,
@@ -113,6 +173,21 @@ export default {
           return pattern.test(value) || 'Correo invalido.'
         }
       ],
+      edadRules:[
+        (value) => !!value || "Requerido.",
+        (value) => (value || "").length >= 2 || "Min 2 números",
+        (value) => (value || "").length <= 3 || "Max 2 números",
+      ],
+      generoRules:[
+        (value) => !!value || "Requerido.",
+        (value) => (value || "").length >= 5 || "Min 6 letras",
+        (value) => (value || "").length <= 7 || "Max 7 letras",
+      ],
+      nacimientoRules:[
+        (value) => !!value || "Requerido.",
+        // (value) => (value || "").length >= 10 || "Min 8 letras",
+        // (value) => (value || "").length <=  || "Max 50 letras",
+      ],
       passwordRules:[
         (value) => !!value || "Requerido.",
         (value) => (value || "").length >= 8 || "Min 8 letras",
@@ -123,7 +198,61 @@ export default {
         (value) => (value || "").length <= 10 || "Max 10 numeros",
         (value) => (value || "").length >= 10 || "Min 10 numeros",
       ],
+      selectRules:[
+        (value) => !!value || "Requerido.",
+      ]
     };
+},
+  setup(){
+    const store = useStore();
+
+    const id_department = ref(null)
+    const municipalities = ref([null])
+    const fk_municipality_id = ref(null)
+    const veredas = ref([null])
+    onMounted(() => { store.dispatch("departament/list") });
+    // Computed
+    const departamenties = computed(() => store.getters["departament/departamens"]);
+watch(
+  () => id_department.value,
+  async (newDepartmentId) => {
+    if (newDepartmentId) {
+      try {
+        await store.dispatch("municipality/departamentShow", newDepartmentId);
+        municipalities.value = store.getters['municipality/municipalities'];
+        console.log(store.getters['municipality/municipalities']);
+      } catch (error) {
+        console.error("Error fetching municipalities:", error);
+      }
+    } else {
+      municipalities.value = [];
+    }
+  }
+)
+watch(
+  () => fk_municipality_id.value,
+  async (newVeredatId) => {
+    if (newVeredatId) {
+      try {
+        await store.dispatch("vereda/list", newVeredatId);
+        veredas.value = store.getters['vereda/veredas'];
+      } catch (error) {
+        console.error("Error fetching municipalities:", error);
+      }
+    } else {
+      // If no department is selected, reset the municipalities array
+      veredas.value = [];
+    }
+  }
+)
+return{
+  id_department,
+  municipalities,
+  fk_municipality_id,
+  departamenties,
+  veredas
+}
+
   },
   methods: {
     async submitForm() {
@@ -134,6 +263,11 @@ export default {
           cedula_user: this.cedula_user,
           name_user: this.name_user,
           email_user: this.email_user,
+          fk_vereda_id: this.fk_vereda_id,
+          edad_user: this.edad_user,
+          sexo_user: this.sexo_user,
+          nacimiento_user: this.nacimiento_user,
+          estudios_user: this.estudios_user,
           password_user: this.password_user,
           celular1: this.celular1,
           celular2: this.celular2,
@@ -183,6 +317,7 @@ export default {
         this.loadingForm = false;
       }
     },
+    
   },
 };
 </script>
