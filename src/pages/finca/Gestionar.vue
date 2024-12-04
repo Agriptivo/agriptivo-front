@@ -36,7 +36,7 @@
               Cultivo
               <template v-slot:activator="{ on, attrs }">
                 <v-icon size="large" class="me-2" v-bind="attrs" v-on="on">
-                  mdi-monitor-edit
+                  mdi-sprout
                 </v-icon>
               </template>
             </v-tooltip>
@@ -47,7 +47,7 @@
               Sumninistros entrada
               <template v-slot:activator="{ on, attrs }">
                 <v-icon size="large" class="me-2" v-bind="attrs" v-on="on">
-                  mdi-monitor-edit
+                  mdi-truck-plus-outline
                 </v-icon>
               </template>
             </v-tooltip>

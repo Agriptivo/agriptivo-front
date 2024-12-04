@@ -37,7 +37,7 @@
               Generar Reporte
               <template v-slot:activator="{ on, attrs }">
                 <v-icon size="large" class="me-2" v-bind="attrs" v-on="on">
-                  mdi-monitor-edit
+                  mdi-file-document-plus-outline
                 </v-icon>
               </template>
             </v-tooltip>
@@ -48,7 +48,7 @@
               Ver Reporte
               <template v-slot:activator="{ on, attrs }">
                 <v-icon size="large" class="me-2" v-bind="attrs" v-on="on">
-                  mdi-monitor-edit
+                  mdi-file-eye-outline
                 </v-icon>
               </template>
             </v-tooltip>
@@ -58,17 +58,17 @@
               Actividades
               <template v-slot:activator="{ on, attrs }">
                 <v-icon size="large" class="me-2" v-bind="attrs" v-on="on">
-                  mdi-monitor-edit
+                  mdi-format-list-checks
                 </v-icon>
               </template>
             </v-tooltip>
           </v-btn>
           <v-btn @click="cif(item.raw.id_process)" variant="text">
             <v-tooltip top activator="parent" location="top">
-              Cif
+              Cuenta irregular de funcionamiento
               <template v-slot:activator="{ on, attrs }">
                 <v-icon size="large" class="me-2" v-bind="attrs" v-on="on">
-                  mdi-monitor-edit
+                  mdi-cash-register
                 </v-icon>
               </template>
             </v-tooltip>
@@ -78,7 +78,7 @@
               Sumninistros salida
               <template v-slot:activator="{ on, attrs }">
                 <v-icon size="large" class="me-2" v-bind="attrs" v-on="on">
-                  mdi-monitor-edit
+                  mdi-package-variant-minus
                 </v-icon>
               </template>
             </v-tooltip>
