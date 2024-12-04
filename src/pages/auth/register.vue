@@ -39,20 +39,20 @@
               ></v-text-field>
               <v-row>
               <v-col cols="12" sm="6" md="12">
-                <v-autocomplete prepend-icon="mdi-earth" label="Departamentos*" clearable item-title="name_department" item-value="id_department"
+                <v-autocomplete prepend-icon="mdi-earth" label="Departamento*" clearable item-title="name_department" item-value="id_department"
                   :items="departamenties || []" variant="outlined" v-model="id_department" :rules="selectRules"></v-autocomplete>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="12" sm="6" md="12">
-                <v-autocomplete prepend-icon="mdi-earth" label="Municipios*" clearable item-title="name_municipality"
+                <v-autocomplete prepend-icon="mdi-earth" label="Municipio*" clearable item-title="name_municipality"
                   item-value="id_municipality" :items="municipalities || []" variant="outlined"
                   v-model="fk_municipality_id" :rules="selectRules"></v-autocomplete>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="12" sm="6" md="12">
-                <v-autocomplete prepend-icon="mdi-earth" label="Veredas*" clearable item-title="name_vereda" item-value="id_vereda"
+                <v-autocomplete prepend-icon="mdi-earth" label="Vereda*" clearable item-title="name_vereda" item-value="id_vereda"
                   :items="veredas || []" variant="outlined" v-model="fk_vereda_id" :rules="selectRules"></v-autocomplete>
               </v-col>
             </v-row>
