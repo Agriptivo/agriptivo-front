@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-col cols="6">
+    <v-col cols="8">
       <v-text-field
         outlined
         dense
@@ -13,7 +13,7 @@
   </v-row>
 
   <v-row justify="center">
-    <v-col cols="6">
+    <v-col cols="8">
       <v-data-table
         :headers="headers"
         :items="cultives"
@@ -33,51 +33,56 @@
           </v-toolbar>
         </template>
         <template v-slot:[`item.actions`]="{ item }">
-          <v-icon size="small" class="me-2" @click="openModal(-1, item)">
-            mdi-pencil
-          </v-icon>
-
-          <v-icon size="small" class="me-2" @click="deleteItem(item.raw)">
-            mdi-delete
-          </v-icon>
-          <v-tooltip top>
-            <template v-slot:activator="{ on, attrs }">
-              <v-icon
-                size="small"
-                class="me-2"
-                @click="crop_monitoring(item.raw.id_cultive)"
-                v-bind="attrs"
-                v-on="on"
-              >
-                mdi-monitor-edit
-              </v-icon>
-            </template>
-          </v-tooltip>
-          <v-tooltip top>
-            <template v-slot:activator="{ on, attrs }">
-              <v-icon
-                size="small"
-                class="me-2"
-                @click="estadistic(item.raw.id_cultive)"
-                v-bind="attrs"
-                v-on="on"
-              >
-                mdi-monitor
-              </v-icon>
-            </template>
-          </v-tooltip>
-          <v-tooltip top>
-            <template v-slot:activator="{ on, attrs }">
-              <v-icon
-                size="small"
-                @click="process(item.raw.id_cultive)"
-                v-bind="attrs"
-                v-on="on"
-              >
-                mdi-monitor
-              </v-icon>
-            </template>
-          </v-tooltip>
+          <v-btn @click="openModal(-1, item)" variant="text">
+            <v-tooltip top activator="parent" location="top">
+              Editar
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon size="25" class="me-2" v-bind="attrs" v-on="on">
+                  mdi-pencil
+                </v-icon>
+              </template>
+            </v-tooltip>
+          </v-btn>
+          <v-btn @click="deleteItem(item.raw)" variant="text">
+            <v-tooltip top activator="parent" location="top">
+              Eliminar
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon size="25" class="me-2" v-bind="attrs" v-on="on">
+                  mdi-delete
+                </v-icon>
+              </template>
+            </v-tooltip>
+          </v-btn>
+          <v-btn @click="crop_monitoring(item.raw.id_cultive)" variant="text">
+            <v-tooltip top activator="parent" location="top">
+              Seguimiento
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon size="25" class="me-2" v-bind="attrs" v-on="on">
+                  mdi-file-sign
+                </v-icon>
+              </template>
+            </v-tooltip>
+          </v-btn>
+          <v-btn @click="estadistic(item.raw.id_cultive)" variant="text">
+            <v-tooltip top activator="parent" location="top">
+              Sensores
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon size="25" class="me-2" v-bind="attrs" v-on="on">
+                  mdi-chart-line
+                </v-icon>
+              </template>
+            </v-tooltip>
+          </v-btn>
+          <v-btn @click="process(item.raw.id_cultive)" variant="text">
+            <v-tooltip top activator="parent" location="top">
+              Procesos
+              <template v-slot:activator="{ on, attrs }">
+                <v-icon size="25" class="me-2" v-bind="attrs" v-on="on">
+                  mdi-cogs
+                </v-icon>
+              </template>
+            </v-tooltip>
+          </v-btn>
         </template>
       </v-data-table>
     </v-col>

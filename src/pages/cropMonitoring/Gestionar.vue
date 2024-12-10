@@ -1,6 +1,6 @@
 <template>
     <v-row justify="center">
-      <v-col cols="6">
+      <v-col cols="8">
         <v-text-field
           outlined
           dense
@@ -13,7 +13,7 @@
     </v-row>
   
     <v-row justify="center">
-      <v-col cols="6">
+      <v-col cols="8">
         <v-data-table
           :headers="headers"
           :items="cropMonitoring"

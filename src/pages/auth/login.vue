@@ -79,7 +79,7 @@ export default {
           this.loadingForm = false;
 
           setTimeout(() => {
-            this.$router.push("/");
+            this.$router.push("/finca_gestionar");
           }, 2000); // Pausa de 2 segundos antes de cerrar y reiniciar el formulario
 
         } catch (error) {

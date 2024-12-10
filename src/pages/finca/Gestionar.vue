@@ -1,13 +1,13 @@
 <template>
   <v-row justify="center">
-    <v-col cols="6">
+    <v-col cols="8">
       <v-text-field outlined dense append-icon="mdi-magnify" hide-details v-model="search"></v-text-field>
     </v-col>
   </v-row>
 
   <v-row justify="center">
     <AlertContainer ref="alertContainer" /> <!-- SPAIN CHANGED -->
-    <v-col cols="6">
+    <v-col cols="8">
       <v-data-table :headers="headers" :items="filteredFincas" class="elevation-3" :search="search" :items-per-page="5"
         height="400">
         <!-- Contenido adicional del v-data-table -->
@@ -36,7 +36,7 @@
               Cultivo
               <template v-slot:activator="{ on, attrs }">
                 <v-icon size="large" class="me-2" v-bind="attrs" v-on="on">
-                  mdi-monitor-edit
+                  mdi-sprout
                 </v-icon>
               </template>
             </v-tooltip>
@@ -47,7 +47,7 @@
               Sumninistros entrada
               <template v-slot:activator="{ on, attrs }">
                 <v-icon size="large" class="me-2" v-bind="attrs" v-on="on">
-                  mdi-monitor-edit
+                  mdi-truck-plus-outline
                 </v-icon>
               </template>
             </v-tooltip>

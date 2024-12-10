@@ -31,7 +31,126 @@
             <v-row>
               <v-col cols="12" sm="6" md="12">
                 <v-autocomplete label="Veredas*" clearable item-title="name_vereda" item-value="id_vereda"
-                  :items="veredas || []" variant="outlined" v-model="fk_verda_id"></v-autocomplete>
+                  :items="veredas || []" variant="outlined" v-model="fk_vereda_id"></v-autocomplete>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" sm="6" md="12">
+                ¿El predio cuenta con documentos?
+                <v-radio-group v-model="documentos" :rules="booleanRules" row>
+                  <v-row>
+                    <v-radio label="Sí" :value="true"></v-radio>
+                    <v-radio label="No" :value="false"></v-radio>
+                  </v-row>
+                </v-radio-group>
+              </v-col>
+            </v-row>
+            <v-row v-if="documentos">
+              <v-col cols="12" sm="6" md="12">
+                <v-text-field v-model="matricula_catastral" label="Número matricula catastral" :rules="fincaRules"
+                  maxlength="50" counter variant="outlined" type="text"></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" sm="6" md="12">
+                ¿Tiene servicios públicos?
+                <v-radio-group v-model="servicio_publico" :rules="booleanRules" row>
+                  <v-row>
+                    <v-radio label="Sí" :value="true"></v-radio>
+                    <v-radio label="No" :value="false"></v-radio>
+                  </v-row>
+                </v-radio-group>
+              </v-col>
+            </v-row>
+            <v-row v-if="servicio_publico">
+              <v-col cols="12" sm="6" md="12">
+                Seleccione los servicios con los que cuenta
+                <v-row>
+                  <v-checkbox v-model="tipo_servicio" label="Agua" value="Agua" :rules="tipo_servicioRules"
+                    variant="outlined"></v-checkbox>
+                  <v-checkbox v-model="tipo_servicio" label="Electricidad" value="Electricidad"
+                    :rules="tipo_servicioRules" variant="outlined"></v-checkbox>
+                </v-row>
+                <v-row>
+                  <v-checkbox v-model="tipo_servicio" label="Gas" value="Gas" :rules="tipo_servicioRules"
+                    variant="outlined"></v-checkbox>
+                  <v-checkbox v-model="tipo_servicio" label="Internet" value="Internet" :rules="tipo_servicioRules"
+                    variant="outlined"></v-checkbox>
+                </v-row>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" sm="6" md="12">
+                ¿Acceso carreteable?
+                <v-radio-group v-model="acceso_carreteable" :rules="booleanRules" row>
+                  <v-row>
+                    <v-radio label="Sí" :value="true"></v-radio>
+                    <v-radio label="No" :value="false"></v-radio>
+                  </v-row>
+                </v-radio-group>
+              </v-col>
+            </v-row>
+            <v-row v-if="acceso_carreteable">
+              <v-col cols="12" sm="6" md="12">
+                Seleccione los servicios con los que cuenta
+                <v-row>
+                  <v-checkbox v-model="tipo_acceso" label="Herradura" value="Herradura" :rules="tipo_accesoRules"
+                    variant="outlined"></v-checkbox>
+                  <v-checkbox v-model="tipo_acceso" label="Destapado" value="Destapado" :rules="tipo_accesoRules"
+                    variant="outlined"></v-checkbox>
+                </v-row>
+                <v-row>
+                  <v-checkbox v-model="tipo_acceso" label="Primario" value="Primario" :rules="tipo_accesoRules"
+                    variant="outlined"></v-checkbox>
+                  <v-checkbox v-model="tipo_acceso" label="Pavimento" value="Pavimento" :rules="tipo_accesoRules"
+                    variant="outlined"></v-checkbox>
+                </v-row>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" sm="6" md="12">
+                <v-text-field v-model="area_total" label="Area total del predio" :rules="fincaRules" maxlength="50"
+                  counter variant="outlined" type="text"></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" sm="6" md="12">
+                <v-text-field v-model="area_produccion" label="Area en producción del predio" :rules="fincaRules"
+                  maxlength="50" counter variant="outlined" type="text"></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" sm="6" md="12">
+                ¿Tiene áreas en preservación?
+                <v-radio-group v-model="preservacion" :rules="booleanRules" row>
+                  <v-row>
+                    <v-radio label="Sí" :value="true"></v-radio>
+                    <v-radio label="No" :value="false"></v-radio>
+                  </v-row>
+                </v-radio-group>
+              </v-col>
+            </v-row>
+            <v-row v-if="preservacion">
+              <v-col cols="12" sm="6" md="12">
+                <v-text-field v-model="area_preservacion" label="Área total en preservación" :rules="fincaRules"
+                  maxlength="50" counter variant="outlined" type="text"></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" sm="6" md="12">
+                ¿Cuenta con cuencas hídricas?
+                <v-radio-group v-model="cuenca_hidrica" :rules="booleanRules" row>
+                  <v-row>
+                    <v-radio label="Sí" :value="true"></v-radio>
+                    <v-radio label="No" :value="false"></v-radio>
+                  </v-row>
+                </v-radio-group>
+              </v-col>
+            </v-row>
+            <v-row v-if="cuenca_hidrica">
+              <v-col cols="12" sm="6" md="12">
+                <v-text-field v-model="ubicacion_hidrica" label="Ubicación de la cuenca hídrica" :rules="fincaRules"
+                  maxlength="50" counter variant="outlined" type="text"></v-text-field>
               </v-col>
             </v-row>
           </v-form>
@@ -52,16 +171,29 @@ import { useStore } from "vuex"
 import { ref, watch, onMounted, defineProps, defineEmits, computed } from "vue"
 
 const store = useStore();
-
 // Data
 const prop = defineProps(["modelValue", "type", "data"])
 const emit = defineEmits(["modelValue"])
 const dialog = ref(prop.modelValue); // Inicializamos el valor con la propiedad
-const name_finca = ref(null)
-const fk_verda_id = ref(null)
 const id_department = ref(null)
 const municipalities = ref([null])
 const fk_municipality_id = ref(null)
+// FORM
+const name_finca = ref(null)
+const fk_vereda_id = ref(null)
+const documentos = ref(null)
+const matricula_catastral = ref(null)
+const servicio_publico = ref(null)
+const tipo_servicio = ref([])
+const acceso_carreteable = ref(null)
+const tipo_acceso = ref("")
+const area_total = ref(null)
+const area_produccion = ref(null)
+const preservacion = ref(null)
+const area_preservacion = ref(null)
+const cuenca_hidrica = ref(null)
+const ubicacion_hidrica = ref(null)
+// DATA
 const veredas = ref([null])
 const validForm = ref(false)
 const loadingForm = ref(false)
@@ -75,6 +207,26 @@ const fincaRules = ref([
   (value) => !!value || "Requerido.",
   (value) => (value || "").length >= 3 || "Mínimo 3 letras",
   (value) => (value || "").length <= 50 || "Máximo 50 letras",
+]);
+
+const booleanRules = ref([
+  (value) => (value !== null) || 'Debe seleccionar una opción.'
+]);
+
+const tipo_servicioRules = computed(() => [
+  () =>
+    servicio_publico.value === null ||
+    servicio_publico.value === false ||
+    tipo_servicio.value.length > 0 ||
+    'Debe seleccionar al menos un servicio.',
+]);
+
+const tipo_accesoRules = computed(() => [
+  () =>
+    acceso_carreteable.value === null ||
+    acceso_carreteable.value === false ||
+    tipo_acceso.value.length > 0 ||
+    'Debe seleccionar al menos un tipo de acceso.',
 ]);
 
 // Mounted
@@ -91,11 +243,23 @@ const typeForm = computed(() => prop.type === 1
 
 const resetData = () => {
   name_finca.value = null
-  fk_verda_id.value = null
+  fk_vereda_id.value = null
   id_department.value = null
   municipalities.value = [null]
   fk_municipality_id.value = null
   veredas.value = [null]
+  documentos.value = null
+  matricula_catastral.value = null
+  servicio_publico.value = null
+  tipo_servicio.value = []
+  acceso_carreteable.value = null
+  tipo_acceso.value = ""
+  area_total.value = null
+  area_produccion.value = null
+  preservacion.value = null
+  area_preservacion.value = null
+  cuenca_hidrica.value = null
+  ubicacion_hidrica.value = null
 }
 
 // Methods
@@ -109,7 +273,19 @@ async function submitForm() {
   if (valid) {
     const credentials = {
       name_finca: name_finca.value,
-      fk_vereda_id: fk_verda_id.value
+      fk_vereda_id: fk_vereda_id.value,
+      documentos: documentos.value,
+      matricula_catastral: matricula_catastral.value,
+      servicio_publico: servicio_publico.value,
+      tipo_servicio: tipo_servicio.value.join(', '),
+      acceso_carreteable: acceso_carreteable.value,
+      tipo_acceso: tipo_acceso.value,
+      area_total: area_total.value,
+      area_produccion: area_produccion.value,
+      preservacion: preservacion.value,
+      area_preservacion: area_preservacion.value,
+      cuenca_hidrica: cuenca_hidrica.value,
+      ubicacion_hidrica: ubicacion_hidrica.value
     };
 
     try {
@@ -179,7 +355,7 @@ watch(
   (newValue) => {
     if (prop.type === -1 && newValue) {
       name_finca.value = newValue.value.name_finca;
-      fk_verda_id.value = newValue.value.fk_vereda_id;
+      fk_vereda_id.value = newValue.value.fk_vereda_id;
     }
   }
 );
