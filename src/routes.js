@@ -1,32 +1,32 @@
 // NAVS
-import Admin from "./components/Navs/Admin.vue"
-import Nav from "./components/Navs/Nav.vue"
-import NavClient from "./components/Navs/NavClient.vue"
+import Admin from "./components/Navs/Admin.vue";
+import Nav from "./components/Navs/Nav.vue";
+import NavClient from "./components/Navs/NavClient.vue";
 
-import IndiceService from './pages/IndiceService.vue'
+import IndiceService from "./pages/IndiceService.vue";
 
-import Login from "./pages/auth/login.vue"
-import Register from "./pages/auth/register.vue"
+import Login from "./pages/auth/login.vue";
+import Register from "./pages/auth/register.vue";
 
+import FincaGestionar from "./pages/finca/Gestionar.vue";
 
-import FincaGestionar from "./pages/finca/Gestionar.vue"
+import CultiveGestionar from "./pages/cultive/Gestionar.vue";
 
-import CultiveGestionar from "./pages/cultive/Gestionar.vue"
+import SuppliesGestionar from "./pages/supplies/Gestionar.vue";
 
-import SuppliesGestionar from "./pages/supplies/Gestionar.vue"
+import OutSupplies from "./pages/output_supplies/Gestionar.vue";
 
-import OutSupplies from "./pages/output_supplies/Gestionar.vue"
+import cropMonitoring from "./pages/cropMonitoring/Gestionar.vue";
 
+import Estadistic from "./pages/estadistic/estadistic.vue";
 
-import cropMonitoring from "./pages/cropMonitoring/Gestionar.vue"
+import Process from "./pages/process/Gestionar.vue";
 
-import Estadistic from "./pages/estadistic/estadistic.vue"
+import Labour from "./pages/labour/Gestionar.vue";
 
-import Process from "./pages/process/Gestionar.vue"
+import Cif from "./pages/cif/Gestionar.vue";
 
-import Labour from './pages/labour/Gestionar.vue'
-
-import Cif from './pages/cif/Gestionar.vue'
+import Activities_worker from "./pages/labour/Activities_worker.vue";
 
 export const routes = [
   { path: "/login", name: "login-auth", component: Login },
@@ -83,24 +83,29 @@ export const routes = [
         component: SuppliesGestionar,
       },
       {
-        path: '/process/:id_cultive',
-        name: 'process',
+        path: "/process/:id_cultive",
+        name: "process",
         component: Process,
       },
       {
-        path: '/labour/:id_process',
-        name: 'labour',
+        path: "/labour/:id_process",
+        name: "labour",
         component: Labour,
       },
       {
-        path: '/cif/:id_process',
-        name: 'cif',
+        path: "/cif/:id_process",
+        name: "cif",
         component: Cif,
       },
       {
         path: "/salida_suministro_gestionar/:id_process",
         name: "salida_suministro_gestionar",
         component: OutSupplies,
+      },
+      {
+        path: "/actividades",
+        name: "activities_worker",
+        component: Activities_worker,
       },
     ],
   },
