@@ -24,6 +24,7 @@ import role from "./modules/role";
 import outsupply from "./modules/outsupply";
 import report from "./modules/report";
 import worker from "./modules/worker";
+import type_sensor from "./modules/type_sensor"
 
 export default function storeConfig(apiUrl) {
   axiosInstance.defaults.baseURL = apiUrl;
@@ -51,6 +52,7 @@ export default function storeConfig(apiUrl) {
       outsupply,
       report,
       worker,
+      type_sensor
     },
   };
 
