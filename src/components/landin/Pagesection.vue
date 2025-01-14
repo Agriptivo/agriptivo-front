@@ -3,8 +3,7 @@
         <h1 class="text-white">Servicios de Pago</h1>
         <v-container class="main-cards col-12">
             <v-card class="rounded-xl" max-width="400" width="360" height="400">
-                <v-img class="align-end text-white" height="200" src="freesection/trasabilidad.jpg"
-                    cover>
+                <v-img class="align-end text-white" height="200" src="freesection/trazabilidad.jpg" cover>
                 </v-img>
 
                 <v-card-title class="pt-4">
@@ -12,14 +11,13 @@
                 </v-card-title>
 
                 <v-card-text class="mt-5 text-subtitle-1">
-                    <div>Mide y conoce las vaiables</div>
+                    <div>Mide y conoce las variables</div>
                     <div>medioambientales que</div>
 
                 </v-card-text>
             </v-card>
             <v-card class="rounded-xl mx-6" max-width="500" width="360" height="400">
-                <v-img class="align-end text-white" height="200" src="freesection/trasabilidad.jpg"
-                    cover>
+                <v-img class="align-end text-white" height="200" src="freesection/trazabilidad.jpg" cover>
                 </v-img>
 
                 <v-card-title class="pt-4">
@@ -27,15 +25,14 @@
                 </v-card-title>
 
                 <v-card-text class="mt-5 text-subtitle-1">
-                    <div>Conectate directamente con</div>
-                    <div>profecionales acorde a sus</div>
+                    <div>Conéctate directamente con</div>
+                    <div>profesionales acorde a sus</div>
                     <div>necesidades.</div>
 
                 </v-card-text>
             </v-card>
             <v-card class="rounded-xl" max-width="500" width="360" height="400">
-                <v-img class="align-end text-white" height="200" src="freesection/trasabilidad.jpg"
-                    cover>
+                <v-img class="align-end text-white" height="200" src="freesection/trazabilidad.jpg" cover>
                 </v-img>
 
                 <v-card-title class="pt-4">
@@ -51,8 +48,7 @@
         </v-container>
         <v-container class="main-cards col-12">
             <v-card class="rounded-xl" max-width="400" width="360" height="400">
-                <v-img class="align-end text-white" height="200" src="freesection/trasabilidad.jpg"
-                    cover>
+                <v-img class="align-end text-white" height="200" src="freesection/trazabilidad.jpg" cover>
                 </v-img>
 
                 <v-card-title class="pt-4">
@@ -67,22 +63,20 @@
                 </v-card-text>
             </v-card>
             <v-card class="rounded-xl mx-6" max-width="500" width="360" height="400">
-                <v-img class="align-end text-white" height="200" src="freesection/trasabilidad.jpg"
-                    cover>
+                <v-img class="align-end text-white" height="200" src="freesection/trazabilidad.jpg" cover>
                 </v-img>
 
                 <v-card-title class="pt-4">
-                    Fertilizacion
+                    Fertilización
                 </v-card-title>
 
                 <v-card-text class="mt-5 text-subtitle-1">
                     <div>Calcula de forma eficiente tu</div>
-                    <div>fertilizacion</div>
+                    <div>fertilización</div>
                 </v-card-text>
             </v-card>
             <v-card class="rounded-xl" max-width="500" width="360" height="400">
-                <v-img class="align-end text-white" height="200" src="freesection/trasabilidad.jpg"
-                    cover>
+                <v-img class="align-end text-white" height="200" src="freesection/trazabilidad.jpg" cover>
                 </v-img>
 
                 <v-card-title class="pt-4">
@@ -90,7 +84,7 @@
                 </v-card-title>
 
                 <v-card-text class="mt-5 text-subtitle-1">
-                    <div>Servicio satelitas</div>
+                    <div>Servicios satelitales</div>
                     <div>especializados</div>
                 </v-card-text>
             </v-card>

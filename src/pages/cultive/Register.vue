@@ -18,7 +18,7 @@
             </v-row>
             <v-row>
               <v-col cols="12" sm="6" md="12">
-                <v-text-field v-model="capacidad_cultive" label="Capacdad de tu cultivo*" :rules="capacidadRules"
+                <v-text-field v-model="capacidad_cultive" label="Capacidad de tu cultivo*" :rules="capacidadRules"
                   maxlength="50" counter variant="outlined" type="number"></v-text-field>
               </v-col>
             </v-row>
@@ -31,13 +31,13 @@
             </v-row>
             <v-row>
               <v-col cols="12" sm="6" md="12">
-                <v-autocomplete label="Categorias*" clearable item-title="name_category" item-value="id_category"
+                <v-autocomplete label="Categorías*" clearable item-title="name_category" item-value="id_category"
                   :items="categories" variant="outlined" v-model="fk_category_id"></v-autocomplete>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="12" sm="6" md="12">
-                <v-autocomplete label="Sub categoria*" clearable item-title="name_subcategory"
+                <v-autocomplete label="Subcategoría*" clearable item-title="name_subcategory"
                   item-value="id_subcategory" :items="subCategories" variant="outlined"
                   v-model="fk_subcategory_id"></v-autocomplete>
               </v-col>

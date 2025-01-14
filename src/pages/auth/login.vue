@@ -9,7 +9,7 @@
           </v-card-title>
           <v-card-text>
             <v-form ref="form" v-model="form">
-              <v-text-field v-model="cedula_user" label="Numero de identificacion" prepend-icon="mdi-account"
+              <v-text-field v-model="cedula_user" label="Numero de identificación" prepend-icon="mdi-account"
                 :rules="cedulaRules" type="number" maxlength="10" counter></v-text-field>
               <v-text-field v-model="password" label="Contraseña" prepend-icon="mdi-lock" type="password"
                 :rules="passwordRules" maxlength="50" counter></v-text-field>
@@ -40,8 +40,8 @@ export default {
       checked: false,
       cedulaRules: [
         (value) => !!value || "Requerido.",
-        (value) => (value || "").length <= 10 || "Max 10 numeros",
-        (value) => (value || "").length >= 6 || "Min 6 numeros",
+        (value) => (value || "").length <= 10 || "Max 10 números",
+        (value) => (value || "").length >= 6 || "Min 6 números",
       ],
       passwordRules: [
         (value) => !!value || "Requerido.",

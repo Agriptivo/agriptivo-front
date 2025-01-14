@@ -44,7 +44,7 @@
 
           <v-btn @click="supplies(item.raw.id_finca)" variant="text">
             <v-tooltip top activator="parent" location="top">
-              Sumninistros entrada
+              Suministros entrada
               <template v-slot:activator="{ on, attrs }">
                 <v-icon size="large" class="me-2" v-bind="attrs" v-on="on">
                   mdi-truck-plus-outline

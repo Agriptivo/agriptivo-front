@@ -13,7 +13,7 @@
                 <v-col cols="12" sm="6" md="12">
                   <v-text-field
                     v-model="promedio_medicion"
-                    label="Promedio de medicion*"
+                    label="Promedio de medición*"
                     :rules="capacidadRules"
                     maxlength="50"
                     counter
@@ -26,7 +26,7 @@
                 <v-col cols="12" sm="6" md="12">
                   <v-text-field
                     v-model="pspromedio_medicion"
-                    label="Ps promedio de mediocion*"
+                    label="Ps promedio de medición*"
                     :rules="capacidadRules"
                     maxlength="50"
                     counter
@@ -54,7 +54,7 @@
                 <v-col cols="12" sm="6" md="12">
                   <v-text-field
                     v-model="talla_medicion"
-                    label="Talla de medicion*"
+                    label="Talla de medición*"
                     :rules="capacidadRules"
                     maxlength="50"
                     counter
@@ -88,7 +88,7 @@
                     maxlength="50"
                     counter
                     variant="outlined"
-                    type="numer"
+                    type="number"
                   ></v-text-field>
                 </v-col>
               </v-row>
@@ -96,7 +96,7 @@
                 <v-col cols="12" sm="6" md="12">
                   <v-text-field
                     v-model="observacion_medicion"
-                    label="Observacion de medicion*"
+                    label="Observación de medición*"
                     :rules="capacidadRules"
                     maxlength="50"
                     counter
@@ -109,7 +109,7 @@
                 <v-col cols="12" sm="6" md="12">
                   <v-text-field
                     v-model="img_medicion"
-                    label="Imagenes de medicion*"
+                    label="Imágenes de medición*"
                     :rules="capacidadRules"
                     maxlength="50"
                     counter

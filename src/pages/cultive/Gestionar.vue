@@ -111,7 +111,7 @@ const headers = [
     value: "total_cultive",
   },
   {
-    title: "Categoria del cultivo",
+    title: "Categoría del cultivo",
     sortable: false,
     value: "name_category",
   },

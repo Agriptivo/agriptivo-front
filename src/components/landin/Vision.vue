@@ -35,7 +35,7 @@
                         >
                             <template v-slot:title >
                                 <p class="">
-                                Quienes somos?
+                                ¿Quiénes somos?
                                 </p>
                             </template>
                             <v-card-text>

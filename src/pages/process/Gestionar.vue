@@ -75,7 +75,7 @@
           </v-btn>
           <v-btn @click="output(item.raw.id_process)" variant="text">
             <v-tooltip top activator="parent" location="top">
-              Sumninistros salida
+              Suministros salida
               <template v-slot:activator="{ on, attrs }">
                 <v-icon size="large" class="me-2" v-bind="attrs" v-on="on">
                   mdi-package-variant-minus

@@ -5,7 +5,7 @@
 
     <v-card :loading="loadingForm">
       <v-card-title>
-        <span class="text-h5">Registrar suminstro utilizado</span>
+        <span class="text-h5">Registrar suministro utilizado</span>
       </v-card-title>
       <v-card-text>
         <v-container>

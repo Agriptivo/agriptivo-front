@@ -18,7 +18,7 @@
             </v-row>
             <v-row>
               <v-col cols='12' sm='6' md='12'>
-                <v-textarea label="descripcion" v-model='description' :rules='descriptionRules' maxlength='50' counter
+                <v-textarea label="Descripción" v-model='description' :rules='descriptionRules' maxlength='50' counter
                   variant='outlined' type='text'>
                 </v-textarea>
               </v-col>

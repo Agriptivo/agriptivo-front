@@ -57,7 +57,7 @@
 
   const headers = [
     {
-      title: "Promedio de la medicion",
+      title: "Promedio de la medición",
       align: "start",
       sortable: false,
       value: "promedio_medicion",
@@ -68,7 +68,7 @@
       value: "pspromedio_medicion",
     },
     {
-      title: "Talla medicion",
+      title: "Talla medición",
       sortable: false,
       value: "talla_medicion",
     },

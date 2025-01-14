@@ -11,10 +11,10 @@
             Quienes somos
           </li>
           <li class="li-nav ">
-            Agrictivo
+            Agriptivo
           </li>
           <li class="li-nav">
-            variables
+            Variables
           </li>
           <li class="li-nav text-grey">
             Cooperativa
@@ -26,13 +26,13 @@
 
         <div class="group-buttons">
           <v-btn variant="plain" size="small" color="black" rounded="xl" @click="login" v-if="!auth">
-            Iniciar sesion
+            Iniciar sesión
           </v-btn>
           <v-btn variant="flat" size="small" class="mx-2" color="black" rounded="xl" @click="register" v-if="!auth">
-            registrate
+            Regístrate
           </v-btn>
           <v-btn variant="flat" size="small" class="mx-2" color="primary" rounded="xl" @click="logout" v-if="auth">
-            Cerrar sesion
+            Cerrar sesión
           </v-btn>
           <v-btn variant="flat" size="small" class="mx-2" color="primary" rounded="xl" @click="client" v-if="auth">
             Ir al modulo
@@ -46,7 +46,7 @@
     <v-container class="">
       <Vision />
     </v-container>
-    <VideoAgrictivo />
+    <VideoAgriptivo />
     <Freesection />
     <Pagesection />
   </div>
@@ -59,16 +59,16 @@
       <v-col cols="12" sm="6" color="primary" elevation="3" rounded="5">
         <v-card class="h-100 bg-primary d-flex align-center justify-center flex-column">
           <p class="text-h6 pa-4">
-            Estacion para la medicion de variables medio ambientales
+            Estación para la medición de variables medio ambientales
           </p>
           <p color="primary" class="d-flex pa-4">
             conoce a tiempo real como interactuar las variables medio
-            ambientales y el coreecto desarrollo de los ciclos agropecuarios
+            ambientales y el correcto desarrollo de los ciclos agropecuarios
           </p>
           <div class="pa-4">
             <v-alert v-model="alert" border="start" closable close-label="Close Alert" color="secondary" title="OFERTA">
-              Adquiere nuestra estacion de medicion y obten un año de software
-              AGRICTIVO
+              Adquiere nuestra estación de medición y obtén un año de software
+              AGRIPTIVO
             </v-alert>
 
             <div v-if="!alert" class="text-center">
@@ -135,7 +135,7 @@
       </v-col>
       <v-col cols="12" sm="5" color="primary" elevation="3" rounded="5">
         <v-card class="h-100 bg-primary d-flex align-center justify-center flex-column">
-          <v-card-title>Asesoria profecional</v-card-title>
+          <v-card-title>Asesoría profesional</v-card-title>
           <v-timeline density="compact" align="start" class="ml-2">
             <v-timeline-item v-for="message in message2" :key="message.time" :dot-color="message.color" size="x-small">
               <div class="mb-4">
@@ -157,7 +157,7 @@
       </v-col>
       <v-col cols="12" sm="5" color="primary" elevation="3" rounded="5">
         <v-card class="h-100 bg-primary d-flex align-center justify-center flex-column">
-          <v-card-title>Diseño, Construccion y Automatizacion</v-card-title>
+          <v-card-title>Diseño, construcción y automatización</v-card-title>
 
           <v-timeline density="compact" align="start" class="ml-2">
             <v-timeline-item v-for="message in message3" :key="message.time" :dot-color="message.color" size="x-small">
@@ -183,13 +183,13 @@
       <v-carousel show-arrows="hover">
         <v-carousel-item src="capacitacion/capacitacion1.jpg">
           <div class="d-flex fill-height justify-center align-end pb-10">
-            <div class="text-h2 text-white">Acuaponia</div>
+            <div class="text-h2 text-white">Acuaponía</div>
           </div>
         </v-carousel-item>
 
         <v-carousel-item src="capacitacion/capacitacion2.jpg">
           <div class="d-flex fill-height justify-center align-end pb-10">
-            <div class="text-h2 text-white">Piscicola</div>
+            <div class="text-h2 text-white">Piscícola</div>
           </div>
         </v-carousel-item>
 
@@ -201,7 +201,7 @@
         <v-carousel-item src="capacitacion/capacitacion4.jpg"></v-carousel-item>
         <v-carousel-item src="capacitacion/capacitacion5.jpg">
           <div class="d-flex fill-height justify-center align-end pb-10">
-            <div class="text-h2 text-white">Agricultura organica</div>
+            <div class="text-h2 text-white">Agricultura orgánica</div>
           </div>
         </v-carousel-item>
         <v-carousel-item src="capacitacion/capacitacion6.png">
@@ -211,7 +211,7 @@
         </v-carousel-item>
         <v-carousel-item src="capacitacion/capacitacion7.jpg">
           <div class="d-flex fill-height justify-center align-end pb-10">
-            <div class="text-h2 text">Energias renovables</div>
+            <div class="text-h2 text">Energías renovables</div>
           </div>
         </v-carousel-item>
         <v-carousel-item src="capacitacion/capacitacion8.jpeg">
@@ -221,7 +221,7 @@
         </v-carousel-item>
         <v-carousel-item src="capacitacion/capacitaciones9.jpg">
           <div class="d-flex fill-height justify-center align-end pb-10">
-            <div class="text-h2 text-white">piscicultura</div>
+            <div class="text-h2 text-white">Piscicultura</div>
           </div>
         </v-carousel-item>
       </v-carousel>
@@ -233,7 +233,7 @@
         {{ link }}
       </v-btn>
       <v-col class="text-center mt-4" cols="12">
-        {{ new Date().getFullYear() }} — <strong>Agrictivo</strong>
+        {{ new Date().getFullYear() }} — <strong>Agriptivo</strong>
       </v-col>
     </v-row>
   </v-footer>
@@ -242,7 +242,7 @@
 import Tittle from '../components/landin/Tittle.vue'
 import Vision from '../components/landin/Vision.vue'
 import Freesection from '../components/landin/Freesection.vue'
-import VideoAgrictivo from '../components/landin/VideoAgrictivo.vue'
+import VideoAgriptivo from '../components/landin/VideoAgriptivo.vue'
 import Pagesection from '../components/landin/Pagesection.vue'
 import Cookies from 'js-cookie'
 
@@ -252,22 +252,22 @@ export default {
     'Tittle': Tittle,
     'Vision': Vision,
     'Freesection': Freesection,
-    'VideoAgrictivo':VideoAgrictivo,
+    'VideoAgriptivo':VideoAgriptivo,
     'Pagesection':Pagesection
   },
   data: () => ({
     alert: true,
     messages: [
       {
-        message: `Asegura la venta de tu produccion`,
+        message: `Asegura la venta de tu producción`,
         color: "primary",
       },
       {
-        message: "Acceso a creditos para proyectos productivos (Exportacion)",
+        message: "Acceso a créditos para proyectos productivos (Exportación)",
         color: "green",
       },
       {
-        message: "Acceso afinanciacion para adquirir:",
+        message: "Acceso a financiación para adquirir:",
         color: "secondary",
       },
       {
@@ -279,7 +279,7 @@ export default {
         color: "secondary",
       },
       {
-        message: "3.Asistencia tecnica para llevar tu modelo de negocio",
+        message: "3.Asistencia técnica para llevar tu modelo de negocio",
         color: "secondary",
       },
     ],
@@ -287,7 +287,7 @@ export default {
       {
         title: "H2O ",
         src: "certificaciones/certificcion_ambiental.jpeg",
-        message: "Huella hidrica",
+        message: "Huella hídrica",
         flex: 4,
       },
       {
@@ -299,7 +299,7 @@ export default {
       {
         title: "BPA",
         src: "certificaciones/certificcion_calidad.png",
-        message: "Buenas practicas agricolas",
+        message: "Buenas practicas agrícolas",
         flex: 4,
       },
       {
@@ -311,7 +311,7 @@ export default {
       {
         title: "RAINFOREST ALLIANCE",
         src: "certificaciones/certificcion_calidad3.png",
-        message: "Proteccion al medio ambiente",
+        message: "Protección al medio ambiente",
         flex: 4,
       },
       {
@@ -329,7 +329,7 @@ export default {
       {
         title: "BPM",
         src: "certificaciones/certificcion_calidad6.jpg",
-        message: "Buenas practicas de manofactura",
+        message: "Buenas practicas de manufactura",
         flex: 4,
       },
       // {
@@ -354,11 +354,11 @@ export default {
         color: "green",
       },
       {
-        message: "Agronomos",
+        message: "Agrónomos",
         color: "danger",
       },
       {
-        message: "Insumos y equipos agricolas",
+        message: "Insumos y equipos agrícolas",
         color: "secondary",
       },
       {
@@ -366,17 +366,17 @@ export default {
         color: "secondary",
       },
       {
-        message: "Energias alternativas",
+        message: "Energías alternativas",
         color: "secondary",
       },
     ],
     message3: [
       {
-        message: `Diseño y construccion y automatizacion acuaponicos`,
+        message: `Diseño y construcción y automatización acuapónicos`,
         color: "primary",
       },
       {
-        message: "Dis,Const y Auto Sistemas Hidroponicos",
+        message: "Dis,Const y Auto Sistemas Hidropónicos",
         color: "green",
       },
       {
@@ -384,23 +384,23 @@ export default {
         color: "danger",
       },
       {
-        message: "Dis,Const y Autom fincas integradas",
+        message: "Dis, Const y Autom fincas integradas",
         color: "secondary",
       },
       {
-        message: "Dis,Const y Autom sistemas forraje verde",
+        message: "Dis, Const y Autom sistemas forraje verde",
         color: "secondary",
       },
       {
-        message: "Dis,Const y Autom Invernaderos",
+        message: "Dis, Const y Autom Invernaderos",
         color: "secondary",
       },
       {
-        message: "Dis,Const y Autom Sistemas energias alternativas",
+        message: "Dis, Const y Autom Sistemas energías alternativas",
         color: "secondary",
       },
       {
-        message: "Dis,Const deobras civiles",
+        message: "Dis, Const de obras civiles",
         color: "secondary",
       },
     ],
