@@ -419,7 +419,7 @@ export default {
       )
     },
     client(){
-      this.$router.push("/ModuleFree")
+      this.$router.push("/finca_gestionar")
     }
   },
   mounted(){

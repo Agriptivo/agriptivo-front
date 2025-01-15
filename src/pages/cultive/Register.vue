@@ -18,7 +18,7 @@
             </v-row>
             <v-row>
               <v-col cols="12" sm="6" md="12">
-                <v-text-field v-model="capacidad_cultive" label="Capacidad de tu cultivo*" :rules="capacidadRules"
+                <v-text-field v-model="capacidad_cultive" label="Capacidad de tu cultivo*" :rules="selectRules"
                   maxlength="50" counter variant="outlined" type="number"></v-text-field>
               </v-col>
             </v-row>
@@ -32,14 +32,14 @@
             <v-row>
               <v-col cols="12" sm="6" md="12">
                 <v-autocomplete label="Categorías*" clearable item-title="name_category" item-value="id_category"
-                  :items="categories" variant="outlined" v-model="fk_category_id"></v-autocomplete>
+                  :items="categories" variant="outlined" v-model="fk_category_id" :rules="selectRules"></v-autocomplete>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="12" sm="6" md="12">
                 <v-autocomplete label="Subcategoría*" clearable item-title="name_subcategory"
                   item-value="id_subcategory" :items="subCategories" variant="outlined"
-                  v-model="fk_subcategory_id"></v-autocomplete>
+                  v-model="fk_subcategory_id" :rules="selectRules"></v-autocomplete>
               </v-col>
             </v-row>
           </v-form>
@@ -89,6 +89,11 @@ const cultiveRules = ref([
   (value) => !!value || "Requerido.",
   (value) => (value || "").length >= 3 || "Mínimo 3 letras",
   (value) => (value || "").length <= 50 || "Máximo 50 letras",
+]);
+const cantidadRules = ref([
+  (value) => !!value || "Requerido.",
+  (value) => (value || "").length >= 1 || "Mínimo 1 numero",
+  // (value) => (value || "").length <= 50 || "Máximo 50 letras",
 ]);
 const selectRules = ref([
   (value) => !!value || "Requerido.",
